@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/design/clion/dft_demo/dft_process.c
+dft_process.h
+D:/design/clion/dft_demo/dft_process.h
+math.h
+-
+
+D:/design/clion/dft_demo/dft_process.h
+stdint.h
+-
+stdbool.h
+-
+
+D:/design/clion/dft_demo/main.c
+stdio.h
+-
+dft_process.h
+D:/design/clion/dft_demo/dft_process.h
+
