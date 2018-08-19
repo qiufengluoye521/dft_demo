@@ -29,8 +29,13 @@ bool dft_process(int32_t *data,uint32_t time_len,int32_t *real,int32_t *img)
      * */    
     //w = 0.01*PI/2;
     delta = 1;
-    
-    for(i = 0;i < 37;i++)
+
+    /*
+     * i        = 0     1       2       3       ......  37      38      39      40      ......
+     * fre      = 0     0.01    0.02    0.03    ......  0.37    0.38    0.39    0.40    ......
+     *
+     * */
+    for(i = 4;i <= 40;i++)
     {
         temp_real   = 0;
         temp_img    = 0;
@@ -65,11 +70,13 @@ bool dft_process(int32_t *data,uint32_t time_len,int32_t *real,int32_t *img)
                 cos_c           = sin_table[phase_cos_1q];
             }
 
-            temp_real   = temp_real + data[j]*(int32_t)(cos_c);
-            temp_img    = temp_img  + data[j]*(int32_t)(sin_c);
+            real[i-4]   = real[i-4] + data[j]*(int32_t)(cos_c);
+            img[i-4]    = img[i-4] + + data[j]*(int32_t)(sin_c);
+            // temp_real   = temp_real + data[j]*(int32_t)(cos_c);
+            // temp_img    = temp_img  + data[j]*(int32_t)(sin_c);
         }
         //DEBUG_PRINT("%d\t%d\r\n",temp_real_1,temp_img_1);
-        DEBUG_PRINT("%d\t%d\r\n",temp_real,temp_img);
+        //DEBUG_PRINT("%d\t%d\r\n",temp_real,temp_img);
     }
     
  
